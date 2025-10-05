@@ -93,7 +93,7 @@
 
                 const price = this.product.price.toLocaleString('es-CO');
                 
-                // LÓGICA PARA ASIGNAR LA IMAGEN SEGÚN EL NOMBRE DEL PRODUCTO
+                // LÓGICA DE IMÁGENES
                 let imageUrl = "https://via.placeholder.com/300x200?text=IMAGEN+NO+ENCONTRADA";
 
                 switch (this.product.name) {
@@ -111,12 +111,22 @@
                         break;
                 }
                 
+                // LÓGICA DEL BOTÓN DE WHATSAPP CON MENSAJE PREESCRITO
+                const phoneNumber = '573107962559'; // Número de contacto
+                const message = encodeURIComponent(`¡Hola! Estoy interesado en comprar la ${this.product.name}. Por favor, dame más información.`);
+                const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
+
+
                 const htmlContent = `
                     <img src="${imageUrl}" alt="${this.product.name}">
                     <div class="product-content">
                         <h2>${this.product.name}</h2>
                         <p>${this.product.description}</p>
                         <p class="price">Precio: <ins>$${price}</ins></p>
+                        
+                        <a href="${whatsappLink}" target="_blank" class="btn">
+                            <i class="fa-brands fa-whatsapp"></i> Comprar por WhatsApp
+                        </a>
                     </div>
                 `;
                 
@@ -159,4 +169,5 @@
     </script>
 </body>
 </html>
+
 
