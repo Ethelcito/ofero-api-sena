@@ -126,9 +126,7 @@
     </footer>
 
     <script>
-        // =======================================================================
-        // LÓGICA DE POO PARA PRODUCTOS (VEHÍCULOS)
-        // =======================================================================
+        
 
         class ProductRenderer {
             constructor(product) {
@@ -141,7 +139,7 @@
 
                 const price = this.product.price.toLocaleString('es-CO');
                 
-                // LÓGICA DE IMÁGENES
+                // GUIA DE IMAGENES, PARA QUE SE VEAN EN LA PAGINA SEBASTIAN
                 let imageUrl = "https://via.placeholder.com/300x200?text=IMAGEN+NO+ENCONTRADA";
 
                 switch (this.product.name) {
@@ -159,7 +157,7 @@
                         break;
                 }
                 
-                // LÓGICA DEL BOTÓN DE WHATSAPP CON MENSAJE PREESCRITO
+                // LÓGICA DEL BOTÓN DE WHATSAPP CON MENSAJE PARA MI CHAT
                 const phoneNumber = '573107962559'; // Número de contacto
                 const message = encodeURIComponent(`¡Hola! Estoy interesado en comprar la ${this.product.name}. Por favor, dame más información.`);
                 const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -183,11 +181,11 @@
             }
         }
 
-        // FUNCIÓN PRINCIPAL DE CONEXIÓN Y RENDERIZADO DE PRODUCTOS
+        // FUNCIÓN PRINCIPAL DE CONEXIÓN Y RENDERIZADO DE PRODUCTOS PARA LA PAGINA
         function fetchAndRenderProducts() {
             const productsGrid = document.getElementById('productos-grid');
             
-            // Conexión a la API (Endpoint de productos)
+            // Conexión a la API
             fetch('https://ofero-api-sena.onrender.com/api/productos')
                 .then(response => {
                     if (!response.ok) {
@@ -210,9 +208,9 @@
         }
 
 
-        // =======================================================================
-        // LÓGICA DE POO PARA SERVICIOS (SERVICIO TÉCNICO)
-        // =======================================================================
+        
+        // LÓGICA DE POO PARA SERVICIOS SERVICIO TÉCNICO
+        
         
         class ServiceRenderer {
             constructor(service) {
@@ -264,9 +262,9 @@
         }
 
 
-        // =======================================================================
+       
         // EJECUCIÓN AL CARGAR LA PÁGINA
-        // =======================================================================
+        
 
         document.addEventListener('DOMContentLoaded', () => {
             fetchAndRenderProducts();
@@ -276,5 +274,6 @@
     </script>
 </body>
 </html>
+
 
 
