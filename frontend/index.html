@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+<head id="top"> <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ofero - Vehículos Eléctricos DE SEBAS</title>
     
@@ -9,10 +8,10 @@
     
     <script>
         const cssCode = `
-            * {margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
+            * {margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth;} /* Scroll suave */
             body {background:#fdfdfd; color:#333; line-height:1.6;}
             header {display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#12be20; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
-            header .logo {display:flex; align-items:center; gap:10px; font-size:1.5rem; font-weight:bold; color:#222;}
+            header .logo {display:flex; align-items:center; gap:10px; font-size:1.5rem; font-weight:bold; color:#222; cursor: pointer;} /* Cursor para indicar que es clickeable */
             nav ul {list-style:none; display:flex; gap:20px;}
             nav a {text-decoration:none; color:#333; font-weight:500;}
             .socials a {color:#333; margin-left:10px; font-size:1.2rem;}
@@ -21,7 +20,46 @@
             .btn {display:inline-block; margin-top:15px; padding:10px 20px; background:#4CAF50; color:#fff; border-radius:25px; text-decoration:none; transition:0.3s;}
             .btn:hover {background:#45a049;}
             section {padding:60px 20px; max-width:1100px; margin:auto;}
-            .product {display:flex; flex-wrap:wrap; align-items:center; margin-bottom:60px;}
+            h2 {text-align: center; margin-bottom: 40px; font-size: 2.5rem; color: #12be20;} /* Estilo para títulos de sección */
+            
+            /* ESTILOS DE PRODUCTO Y ANIMACIÓN HOVER */
+            .product-grid {
+                display: flex; 
+                flex-wrap: wrap;
+                justify-content: center; /* Centrar productos */
+                gap: 30px;
+            }
+            .product {
+                display:flex; flex-wrap:wrap; align-items:center; margin-bottom:60px;
+                padding: 20px; 
+                border-radius: 10px;
+                background: #fff; /* Fondo blanco para destacar la sombra */
+                transition: transform 0.3s ease, box-shadow 0.3s ease; 
+                max-width: 900px; /* Limitar ancho del producto */
+            }
+            .product:hover {
+                transform: translateY(-5px) scale(1.01); 
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+            }
+            .product-service { /* Estilo para tarjetas de servicio */
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+                width: 100%;
+            }
+            .product-service h3 {
+                color: #4CAF50;
+                margin-top: 10px;
+            }
+
             .product img {flex:1; max-width:300px; margin:auto;}
             .product-content {flex:2; padding:20px;}
             .product-content h2 {color:#4CAF50; font-size:2rem; margin-bottom:10px;}
@@ -44,12 +82,10 @@
 </head>
 <body>
     <header>
-        <div class="logo"><i class="fa-solid fa-motorcycle"></i> Ofero</div>
+        <div class="logo"><a href="#top" style="text-decoration: none; color: inherit;"><i class="fa-solid fa-motorcycle"></i> Ofero</a></div>
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Servicio Técnico</a></li>
-                <li><a href="#">Vehículos Eléctricos</a></li>
+                <li><a href="#top">Inicio</a></li> <li><a href="#servicios">Servicio Técnico</a></li> <li><a href="#productos">Vehículos Eléctricos</a></li>
             </ul>
         </nav>
         <div class="socials">
@@ -62,11 +98,20 @@
     <section class="hero">
         <h1>Hay una Ofero diseñada para ti 🚀</h1>
         <p>Conoce todos nuestros modelos. Movilidad sin complicaciones y con ahorro garantizado.</p>
-        <a href="#productos" class="btn">Ver más</a>
+        <a href="#productos" class="btn">Ver Modelos</a>
         <img src="https://oferocol.com/wp-content/uploads/2024/10/Recurso-2.png" alt="Moto eléctrica">
     </section>
 
     <section id="productos">
+        <h2>Nuestros Vehículos Eléctricos</h2>
+        <div class="product-grid" id="productos-grid">
+            </div>
+    </section>
+
+    <section id="servicios">
+        <h2>Servicio Técnico y Mantenimiento</h2>
+        <div class="product-grid" id="servicios-grid">
+            </div>
     </section>
 
     <section class="cta">
@@ -81,7 +126,10 @@
     </footer>
 
     <script>
-        // 1. APLICACIÓN DE POO EN EL FRONTEND (Criterio SENA)
+        // =======================================================================
+        // LÓGICA DE POO PARA PRODUCTOS (VEHÍCULOS)
+        // =======================================================================
+
         class ProductRenderer {
             constructor(product) {
                 this.product = product;
@@ -135,10 +183,9 @@
             }
         }
 
-
-        // 2. FUNCIÓN PRINCIPAL DE CONEXIÓN Y RENDERIZADO
+        // FUNCIÓN PRINCIPAL DE CONEXIÓN Y RENDERIZADO DE PRODUCTOS
         function fetchAndRenderProducts() {
-            const productsSection = document.getElementById('productos');
+            const productsGrid = document.getElementById('productos-grid');
             
             // Conexión a la API (Endpoint de productos)
             fetch('https://ofero-api-sena.onrender.com/api/productos')
@@ -149,22 +196,82 @@
                     return response.json();
                 })
                 .then(products => {
-                    productsSection.innerHTML = ''; // Limpiar
+                    productsGrid.innerHTML = ''; // Limpiar
                     
                     products.forEach(productData => {
-                        // Creamos una instancia de la clase por cada producto
                         const renderer = new ProductRenderer(productData);
-                        productsSection.appendChild(renderer.render());
+                        productsGrid.appendChild(renderer.render());
                     });
                 })
                 .catch(error => {
-                    console.error('ERROR AL CONECTAR LA API:', error);
-                    productsSection.innerHTML = '<p style="text-align:center; color:red; font-size:1.2rem;">❌ Error: La API está inactiva o inalcanzable. Revisa Render o el log.</p>';
+                    console.error('ERROR AL CONECTAR LA API DE PRODUCTOS:', error);
+                    productsGrid.innerHTML = '<p style="text-align:center; color:red; font-size:1.2rem;">❌ Error: La API de vehículos está inactiva o inalcanzable.</p>';
                 });
         }
 
-        // Ejecutar al cargar la página
-        document.addEventListener('DOMContentLoaded', fetchAndRenderProducts);
+
+        // =======================================================================
+        // LÓGICA DE POO PARA SERVICIOS (SERVICIO TÉCNICO)
+        // =======================================================================
+        
+        class ServiceRenderer {
+            constructor(service) {
+                this.service = service;
+            }
+
+            render() {
+                const serviceDiv = document.createElement('div');
+                serviceDiv.className = 'product-service'; // Usamos una clase diferente para el estilo
+
+                const price = this.service.price.toLocaleString('es-CO');
+                
+                const htmlContent = `
+                    <i class="fa-solid fa-wrench" style="font-size: 3rem; color: #4CAF50;"></i>
+                    <h3>${this.service.name}</h3>
+                    <p>${this.service.description}</p>
+                    <p class="price" style="margin-top: 5px;">Precio: <ins>$${price}</ins></p>
+                `;
+                
+                serviceDiv.innerHTML = htmlContent;
+                return serviceDiv;
+            }
+        }
+
+        // FUNCIÓN PRINCIPAL DE CONEXIÓN Y RENDERIZADO DE SERVICIOS
+        function fetchAndRenderServices() {
+            const servicesGrid = document.getElementById('servicios-grid');
+            
+            // Conexión a la API (Endpoint de servicios)
+            fetch('https://ofero-api-sena.onrender.com/api/servicios')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(services => {
+                    servicesGrid.innerHTML = ''; // Limpiar
+                    
+                    services.forEach(serviceData => {
+                        const renderer = new ServiceRenderer(serviceData);
+                        servicesGrid.appendChild(renderer.render());
+                    });
+                })
+                .catch(error => {
+                    console.error('ERROR AL CONECTAR LA API DE SERVICIOS:', error);
+                    servicesGrid.innerHTML = '<p style="text-align:center; color:red; font-size:1.2rem;">❌ Error: La API de servicios técnicos está inactiva o inalcanzable.</p>';
+                });
+        }
+
+
+        // =======================================================================
+        // EJECUCIÓN AL CARGAR LA PÁGINA
+        // =======================================================================
+
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchAndRenderProducts();
+            fetchAndRenderServices(); // Cargamos ambos endpoints
+        });
 
     </script>
 </body>
