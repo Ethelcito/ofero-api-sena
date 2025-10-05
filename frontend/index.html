@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ofero - Vehículos Eléctricos DE SEBAS</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
     * {margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
     body {background:#fdfdfd; color:#333; line-height:1.6;}
     header {display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#12be20; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
@@ -124,7 +126,7 @@
       const productsSection = document.getElementById('productos');
       
       // Conexión a la API (Endpoint de productos)
-      // ¡LA URL ha sido actualizada a tu enlace público de Render!
+      // ¡LA URL ya está configurada a tu enlace público de Render!
       fetch('https://ofero-api-sena.onrender.com/api/productos')
         .then(response => {
           if (!response.ok) {
@@ -143,7 +145,7 @@
         })
         .catch(error => {
           console.error('ERROR AL CONECTAR LA API:', error);
-          productsSection.innerHTML = '<p style="text-align:center; color:red; font-size:1.2rem;">❌ No se pudo conectar con el servidor API. Verifica que esté activo en Render.</p>';
+          productsSection.innerHTML = '<p style="text-align:center; color:red; font-size:1.2rem;">❌ Error: La API está inactiva o inalcanzable. Revisa Render.</p>';
         });
     }
 
@@ -153,6 +155,6 @@
   </script>
 </body>
 </html>
-</body>
 
 </html>
+
