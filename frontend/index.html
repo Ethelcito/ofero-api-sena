@@ -6,7 +6,8 @@
   <title>Ofero - Vehículos Eléctricos DE SEBAS</title>
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <style>
+  
+    <style>
     * {margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
     body {background:#fdfdfd; color:#333; line-height:1.6;}
     header {display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#12be20; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
@@ -99,7 +100,6 @@
                 case "Stareer 2":
                     imageUrl = "https://oferocol.com/wp-content/uploads/2025/02/Stareer-2-1.webp";
                     break;
-                // Si agregas más productos a la API con otro nombre, usarán el placeholder
                 default:
                     imageUrl = `https://via.placeholder.com/300x200?text=${this.product.name.replace(' ', '+')}`;
                     break;
@@ -153,4 +153,3 @@
   </script>
 </body>
 </html>
-
