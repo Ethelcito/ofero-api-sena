@@ -1,155 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ofero - Vehículos Eléctricos DE SEBAS</title>
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-    <style>
-    * {margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
-    body {background:#fdfdfd; color:#333; line-height:1.6;}
-    header {display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#12be20; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
-    header .logo {display:flex; align-items:center; gap:10px; font-size:1.5rem; font-weight:bold; color:#222;}
-    nav ul {list-style:none; display:flex; gap:20px;}
-    nav a {text-decoration:none; color:#333; font-weight:500;}
-    .socials a {color:#333; margin-left:10px; font-size:1.2rem;}
-    .hero {display:flex; flex-direction:column; align-items:center; text-align:center; padding:40px 20px; background:#f9f9f9;}
-    .hero img {max-width:90%; border-radius:10px; margin-top:20px;}
-    .btn {display:inline-block; margin-top:15px; padding:10px 20px; background:#4CAF50; color:#fff; border-radius:25px; text-decoration:none; transition:0.3s;}
-    .btn:hover {background:#45a049;}
-    section {padding:60px 20px; max-width:1100px; margin:auto;}
-    .product {display:flex; flex-wrap:wrap; align-items:center; margin-bottom:60px;}
-    .product img {flex:1; max-width:300px; margin:auto;}
-    .product-content {flex:2; padding:20px;}
-    .product-content h2 {color:#4CAF50; font-size:2rem; margin-bottom:10px;}
-    .price {font-size:1.5rem; font-weight:bold; margin-top:10px;}
-    .price del {color:red; margin-right:10px;}
-    .price ins {color:#4CAF50; text-decoration:none;}
-    .cta {background:#111; color:#fff; text-align:center; padding:50px 20px;}
-    .cta a {background:#fff; color:#111; font-weight:bold; padding:10px 20px; border-radius:5px; text-decoration:none;}
-    footer {background:#222; color:#fff; text-align:center; padding:20px;}
-    @media(max-width:768px){
-      .product {flex-direction:column; text-align:center;}
-      header {flex-direction:column; gap:10px;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofero - Vehículos Eléctricos DE SEBAS</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        const cssCode = `
+            * {margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif;}
+            body {background:#fdfdfd; color:#333; line-height:1.6;}
+            header {display:flex; justify-content:space-between; align-items:center; padding:15px 40px; background:#12be20; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:1000;}
+            header .logo {display:flex; align-items:center; gap:10px; font-size:1.5rem; font-weight:bold; color:#222;}
+            nav ul {list-style:none; display:flex; gap:20px;}
+            nav a {text-decoration:none; color:#333; font-weight:500;}
+            .socials a {color:#333; margin-left:10px; font-size:1.2rem;}
+            .hero {display:flex; flex-direction:column; align-items:center; text-align:center; padding:40px 20px; background:#f9f9f9;}
+            .hero img {max-width:90%; border-radius:10px; margin-top:20px;}
+            .btn {display:inline-block; margin-top:15px; padding:10px 20px; background:#4CAF50; color:#fff; border-radius:25px; text-decoration:none; transition:0.3s;}
+            .btn:hover {background:#45a049;}
+            section {padding:60px 20px; max-width:1100px; margin:auto;}
+            .product {display:flex; flex-wrap:wrap; align-items:center; margin-bottom:60px;}
+            .product img {flex:1; max-width:300px; margin:auto;}
+            .product-content {flex:2; padding:20px;}
+            .product-content h2 {color:#4CAF50; font-size:2rem; margin-bottom:10px;}
+            .price {font-size:1.5rem; font-weight:bold; margin-top:10px;}
+            .price del {color:red; margin-right:10px;}
+            .price ins {color:#4CAF50; text-decoration:none;}
+            .cta {background:#111; color:#fff; text-align:center; padding:50px 20px;}
+            .cta a {background:#fff; color:#111; font-weight:bold; padding:10px 20px; border-radius:5px; text-decoration:none;}
+            footer {background:#222; color:#fff; text-align:center; padding:20px;}
+            @media(max-width:768px){
+                .product {flex-direction:column; text-align:center;}
+                header {flex-direction:column; gap:10px;}
+            }
+        `;
+        const style = document.createElement('style');
+        style.type = 'text/css';
+        style.appendChild(document.createTextNode(cssCode));
+        document.head.appendChild(style);
+    </script>
 </head>
 <body>
-  <header>
-    <div class="logo"><i class="fa-solid fa-motorcycle"></i> Ofero</div>
-    <nav>
-      <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Servicio Técnico</a></li>
-        <li><a href="#">Vehículos Eléctricos</a></li>
-      </ul>
-    </nav>
-    <div class="socials">
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="#"><i class="fa-brands fa-facebook"></i></a>
-    </div>
-  </header>
+    <header>
+        <div class="logo"><i class="fa-solid fa-motorcycle"></i> Ofero</div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Servicio Técnico</a></li>
+                <li><a href="#">Vehículos Eléctricos</a></li>
+            </ul>
+        </nav>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+    </header>
 
-  <section class="hero">
-    <h1>Hay una Ofero diseñada para ti 🚀</h1>
-    <p>Conoce todos nuestros modelos. Movilidad sin complicaciones y con ahorro garantizado.</p>
-    <a href="#productos" class="btn">Ver más</a>
-    <img src="https://oferocol.com/wp-content/uploads/2024/10/Recurso-2.png" alt="Moto eléctrica">
-  </section>
+    <section class="hero">
+        <h1>Hay una Ofero diseñada para ti 🚀</h1>
+        <p>Conoce todos nuestros modelos. Movilidad sin complicaciones y con ahorro garantizado.</p>
+        <a href="#productos" class="btn">Ver más</a>
+        <img src="https://oferocol.com/wp-content/uploads/2024/10/Recurso-2.png" alt="Moto eléctrica">
+    </section>
 
-  <section id="productos">
-    </section>
+    <section id="productos">
+    </section>
 
-  <section class="cta">
-    <h2>¿Quieres tener tu Ofero?</h2>
-    <p>Visita nuestras tiendas o comunícate con nuestros asesores para brindarte toda la información que necesites.</p>
-    <br>
-    <a href="https://wa.me/573107962559" target="_blank"><i class="fa-brands fa-whatsapp"></i> Visitar Tienda</a>
-  </section>
+    <section class="cta">
+        <h2>¿Quieres tener tu Ofero?</h2>
+        <p>Visita nuestras tiendas o comunícate con nuestros asesores para brindarte toda la información que necesites.</p>
+        <br>
+        <a href="https://wa.me/573107962559" target="_blank"><i class="fa-brands fa-whatsapp"></i> Visitar Tienda</a>
+    </section>
 
-  <footer>
-    <p>© 2025 Ofero. Todos los derechos reservados a sebastian.</p>
-  </footer>
+    <footer>
+        <p>© 2025 Ofero. Todos los derechos reservados a sebastian.</p>
+    </footer>
 
-  <script>
-    // 1. APLICACIÓN DE POO EN EL FRONTEND (Criterio SENA)
-    class ProductRenderer {
-        constructor(product) {
-            this.product = product;
-        }
+    <script>
+        // 1. APLICACIÓN DE POO EN EL FRONTEND (Criterio SENA)
+        class ProductRenderer {
+            constructor(product) {
+                this.product = product;
+            }
 
-        render() {
-            const productDiv = document.createElement('div');
-            productDiv.className = 'product';
+            render() {
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product';
 
-            const price = this.product.price.toLocaleString('es-CO');
-            
-            // LÓGICA PARA ASIGNAR LA IMAGEN SEGÚN EL NOMBRE DEL PRODUCTO
-            let imageUrl = "https://via.placeholder.com/300x200?text=IMAGEN+NO+ENCONTRADA";
+                const price = this.product.price.toLocaleString('es-CO');
+                
+                // LÓGICA PARA ASIGNAR LA IMAGEN SEGÚN EL NOMBRE DEL PRODUCTO
+                let imageUrl = "https://via.placeholder.com/300x200?text=IMAGEN+NO+ENCONTRADA";
 
-            switch (this.product.name) {
-                case "Ledo 2":
-                    imageUrl = "https://oferocol.com/wp-content/uploads/2025/03/Mesa-de-trabajo-1_2@2x.png";
-                    break;
-                case "Ledo 3":
-                    imageUrl = "https://oferocol.com/wp-content/uploads/2025/03/Mesa-de-trabajo-1_3@2x.png";
-                    break;
-                case "Stareer 2":
-                    imageUrl = "https://oferocol.com/wp-content/uploads/2025/02/Stareer-2-1.webp";
-                    break;
-                default:
-                    imageUrl = `https://via.placeholder.com/300x200?text=${this.product.name.replace(' ', '+')}`;
-                    break;
-            }
-            
-            const htmlContent = `
-                <img src="${imageUrl}" alt="${this.product.name}">
-                <div class="product-content">
-                    <h2>${this.product.name}</h2>
-                    <p>${this.product.description}</p>
-                    <p class="price">Precio: <ins>$${price}</ins></p>
-                </div>
-            `;
-            
-            productDiv.innerHTML = htmlContent;
-            return productDiv;
-        }
-    }
+                switch (this.product.name) {
+                    case "Ledo 2":
+                        imageUrl = "https://oferocol.com/wp-content/uploads/2025/03/Mesa-de-trabajo-1_2@2x.png";
+                        break;
+                    case "Ledo 3":
+                        imageUrl = "https://oferocol.com/wp-content/uploads/2025/03/Mesa-de-trabajo-1_3@2x.png";
+                        break;
+                    case "Stareer 2":
+                        imageUrl = "https://oferocol.com/wp-content/uploads/2025/02/Stareer-2-1.webp";
+                        break;
+                    default:
+                        imageUrl = `https://via.placeholder.com/300x200?text=${this.product.name.replace(' ', '+')}`;
+                        break;
+                }
+                
+                const htmlContent = `
+                    <img src="${imageUrl}" alt="${this.product.name}">
+                    <div class="product-content">
+                        <h2>${this.product.name}</h2>
+                        <p>${this.product.description}</p>
+                        <p class="price">Precio: <ins>$${price}</ins></p>
+                    </div>
+                `;
+                
+                productDiv.innerHTML = htmlContent;
+                return productDiv;
+            }
+        }
 
 
-    // 2. FUNCIÓN PRINCIPAL DE CONEXIÓN Y RENDERIZADO
-    function fetchAndRenderProducts() {
-      const productsSection = document.getElementById('productos');
-      
-      // Conexión a la API (Endpoint de productos)
-      fetch('https://ofero-api-sena.onrender.com/api/productos')
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then(products => {
-          productsSection.innerHTML = ''; // Limpiar
-          
-          products.forEach(productData => {
-            // Creamos una instancia de la clase por cada producto
-            const renderer = new ProductRenderer(productData);
-            productsSection.appendChild(renderer.render());
-          });
-        })
-        .catch(error => {
-          console.error('ERROR AL CONECTAR LA API:', error);
-          productsSection.innerHTML = '<p style="text-align:center; color:red; font-size:1.2rem;">❌ Error: La API está inactiva o inalcanzable. Revisa Render o el log.</p>';
-        });
-    }
+        // 2. FUNCIÓN PRINCIPAL DE CONEXIÓN Y RENDERIZADO
+        function fetchAndRenderProducts() {
+            const productsSection = document.getElementById('productos');
+            
+            // Conexión a la API (Endpoint de productos)
+            fetch('https://ofero-api-sena.onrender.com/api/productos')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Error HTTP: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(products => {
+                    productsSection.innerHTML = ''; // Limpiar
+                    
+                    products.forEach(productData => {
+                        // Creamos una instancia de la clase por cada producto
+                        const renderer = new ProductRenderer(productData);
+                        productsSection.appendChild(renderer.render());
+                    });
+                })
+                .catch(error => {
+                    console.error('ERROR AL CONECTAR LA API:', error);
+                    productsSection.innerHTML = '<p style="text-align:center; color:red; font-size:1.2rem;">❌ Error: La API está inactiva o inalcanzable. Revisa Render o el log.</p>';
+                });
+        }
 
-    // Ejecutar al cargar la página
-    document.addEventListener('DOMContentLoaded', fetchAndRenderProducts);
+        // Ejecutar al cargar la página
+        document.addEventListener('DOMContentLoaded', fetchAndRenderProducts);
 
-  </script>
+    </script>
 </body>
 </html>
+
